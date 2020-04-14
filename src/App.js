@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import BottomRow from "./BottomRow";
 import "./App.css";
 import TopRow from "./TopRow";
+import Buttons from "./Buttons";
 
 
 function App() {
@@ -14,22 +15,10 @@ function App() {
   return (
     <div className="container">
       <section className="scoreboard">
-        <TopRow homeTeam = {homeTeam} awayTeam = {awayTeam}/>
-        <BottomRow quarter={quarter}/>
+        <TopRow homeTeam={homeTeam} awayTeam={awayTeam} />
+        <BottomRow quarter={quarter} />
       </section>
-      <section className="buttons">
-        <div className="homeButtons">
-
-          {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button onClick ={event => setHomeTeam(homeTeam + 7)} name ={homeTeam}>Home Touchdown</button>
-          <button onClick ={event => setHomeTeam(homeTeam + 3)} name ={homeTeam}className="homeButtons__fieldGoal">Home Field Goal</button>
-        </div>
-        <div className="awayButtons">
-          <button onClick ={event => setAwayTeam(awayTeam + 7)} name={awayTeam}>Away Touchdown</button>
-          <button onClick ={event => setAwayTeam(awayTeam + 3)} name={awayTeam}>Away Field Goal</button>
-          <button onClick = {event => (quarter < 4) ? setQuarter(quarter + 1) : setQuarter(0)}>Next Quarter</button>
-        </div>
-      </section>
+      <Buttons setHomeTeam={setHomeTeam} setAwayTeam={setAwayTeam} awayTeam={awayTeam} homeTeam={homeTeam}quarter={quarter} setQuarter={setQuarter} />
     </div>
   );
 }
