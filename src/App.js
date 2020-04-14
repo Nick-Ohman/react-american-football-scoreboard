@@ -8,7 +8,7 @@ function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
   const [homeTeam, setHomeTeam] = useState(0)
   const [awayTeam, setAwayTeam] = useState(0)
-  const [quarter, setQuarter] = useState(0)
+  let [quarter, setQuarter] = useState(0)
 
   return (
     <div className="container">
@@ -38,7 +38,7 @@ function App() {
         <div className="awayButtons">
           <button onClick ={event => setAwayTeam(awayTeam + 7)} name={awayTeam}>Away Touchdown</button>
           <button onClick ={event => setAwayTeam(awayTeam + 3)} name={awayTeam}>Away Field Goal</button>
-          <button onClick = {event => setQuarter(quarter + 1)}>Next Quarter</button>
+          <button onClick = {event => (quarter < 4) ? setQuarter(quarter + 1) : quarter = -1}>Next Quarter</button>
         </div>
       </section>
     </div>
